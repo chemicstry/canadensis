@@ -206,7 +206,7 @@ impl<'t> Display for WriteAlignedField<'_> {
                 ..
             } => {
                 // Use BitArray
-                writeln!(f, "cursor.write_u16({}.len());", self.field_expr)?;
+                writeln!(f, "cursor.write_aligned_u16({}.len() as u16);", self.field_expr)?;
                 writeln!(f, "({}).serialize(cursor);", self.field_expr)?;
             }
             ResolvedType::FixedArray { inner, .. } => {
