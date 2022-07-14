@@ -8090,6 +8090,7 @@ Extended(crate::uavcan::metatransport::can::extended_arbitration_id_0_1::Extende
                         16 + (self.value).len() * 1 + 0
                     }
                     fn serialize(&self, cursor: &mut ::canadensis_encoding::WriteCursor<'_>) {
+                        cursor.write_aligned_u16(self.value.size() as u16);
                         (self.value).serialize(cursor);
                     }
                 }
